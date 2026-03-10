@@ -1,92 +1,98 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+
 <meta charset="UTF-8">
-<title>18.exe</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>18.EXE</title>
 
 <style>
 
 body{
 margin:0;
 font-family:Arial, Helvetica, sans-serif;
-background:#0a0a0a;
+background:#0b0b0b;
 color:white;
-overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;
+min-height:100vh;
+text-align:center;
 }
 
 .container{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-text-align:center;
-z-index:2;
+width:90%;
+max-width:500px;
 }
 
 h1{
-font-size:60px;
+font-size:48px;
 letter-spacing:4px;
-margin-bottom:10px;
+margin-bottom:5px;
 }
 
 .subtitle{
-opacity:0.7;
+opacity:0.6;
+font-size:14px;
 margin-bottom:30px;
 }
 
 .info{
 font-size:20px;
-margin:15px 0;
+line-height:1.6;
+margin-bottom:25px;
 }
 
 .button{
-display:inline-block;
-padding:15px 35px;
+display:block;
+width:100%;
+padding:18px;
 font-size:18px;
-background:#00e5ff;
+background:#00f0ff;
 color:black;
-text-decoration:none;
 border-radius:12px;
-margin-top:25px;
+text-decoration:none;
+font-weight:bold;
+margin-top:20px;
 transition:0.25s;
 }
 
 .button:hover{
-transform:scale(1.08);
+transform:scale(1.05);
 background:white;
 }
 
 .countdown{
 margin-top:25px;
-font-size:22px;
+font-size:18px;
 opacity:0.8;
 }
 
 /* visualizer */
 
 .visualizer{
-position:absolute;
-bottom:0;
-width:100%;
-height:200px;
+margin-top:40px;
 display:flex;
-align-items:flex-end;
 justify-content:center;
-gap:6px;
-z-index:1;
+align-items:flex-end;
+gap:5px;
+height:120px;
 }
 
 .bar{
-width:8px;
-background:#00e5ff;
-border-radius:5px 5px 0 0;
-animation:beat 1s infinite ease-in-out;
+width:6px;
+background:#00f0ff;
+border-radius:3px;
+animation:beat infinite ease-in-out;
 }
 
 @keyframes beat{
-0%{height:20px}
-50%{height:120px}
-100%{height:20px}
+
+0%{height:10px}
+50%{height:100px}
+100%{height:10px}
+
 }
 
 </style>
@@ -103,9 +109,9 @@ system upgrade: adult mode unlocked
 </div>
 
 <div class="info">
-📅 23 Aprile <br>
-⏰ 20:00 <br>
-📍 (metti qui il luogo)
+📅 23 Aprile<br>
+⏰ 20:00<br>
+📍 scrivimi per la location
 </div>
 
 <a class="button" href="https://forms.gle/AireqN8G1FPncScP6" target="_blank">
@@ -114,9 +120,9 @@ CONFERMA PRESENZA
 
 <div class="countdown" id="countdown"></div>
 
-</div>
-
 <div class="visualizer" id="visualizer"></div>
+
+</div>
 
 <script>
 
@@ -134,7 +140,7 @@ var ore = Math.floor((distanza%(1000*60*60*24))/(1000*60*60));
 var minuti = Math.floor((distanza%(1000*60*60))/(1000*60));
 
 document.getElementById("countdown").innerHTML =
-giorni + "g " + ore + "h " + minuti + "m";
+"⏳ " + giorni + "g " + ore + "h " + minuti + "m";
 
 },1000);
 
@@ -143,12 +149,12 @@ giorni + "g " + ore + "h " + minuti + "m";
 
 const visualizer = document.getElementById("visualizer");
 
-for(let i=0;i<40;i++){
+for(let i=0;i<30;i++){
 
 let bar=document.createElement("div");
 bar.classList.add("bar");
 
-let random=(Math.random()*1)+0.5;
+let random=(Math.random()*1.2)+0.5;
 
 bar.style.animationDuration=random+"s";
 
