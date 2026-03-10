@@ -5,93 +5,141 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>18.EXE</title>
+<title>18</title>
 
 <style>
 
 body{
 margin:0;
 font-family:Arial, Helvetica, sans-serif;
-background:#0b0b0b;
 color:white;
+background:black;
+}
+
+/* BACKGROUND */
+
+.bg{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+background-image:
+linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.9)),
+url("https://i.pinimg.com/736x/5b/a9/bd/5ba9bd194579fcc484fac743275323cc.jpg");
+
+background-size:cover;
+background-position:center;
+
+z-index:-1;
+
+}
+
+/* HERO */
+
+.hero{
+
+height:65vh;
 display:flex;
-align-items:center;
+flex-direction:column;
 justify-content:center;
-min-height:100vh;
+align-items:center;
 text-align:center;
+padding:20px;
+
 }
 
-.container{
-width:90%;
-max-width:500px;
+.hero h1{
+
+font-size:80px;
+margin:0;
+letter-spacing:8px;
+
 }
 
-h1{
-font-size:48px;
-letter-spacing:4px;
-margin-bottom:5px;
+.hero p{
+
+font-size:22px;
+opacity:0.8;
+
 }
 
-.subtitle{
-opacity:0.6;
-font-size:14px;
-margin-bottom:30px;
+/* SECTION */
+
+.section{
+
+max-width:420px;
+margin:auto;
+padding:30px 20px;
+text-align:center;
+
 }
 
 .info{
+
 font-size:20px;
-line-height:1.6;
-margin-bottom:25px;
+line-height:1.8;
+
 }
+
+/* BUTTON */
 
 .button{
+
 display:block;
-width:100%;
-padding:18px;
-font-size:18px;
-background:#00f0ff;
-color:black;
-border-radius:12px;
-text-decoration:none;
+margin-top:35px;
+padding:20px;
+font-size:20px;
 font-weight:bold;
-margin-top:20px;
-transition:0.25s;
+
+background:linear-gradient(90deg,#7b00ff,#00eaff);
+
+border-radius:14px;
+
+text-decoration:none;
+color:white;
+
 }
 
-.button:hover{
-transform:scale(1.05);
-background:white;
-}
+/* COUNTDOWN */
 
 .countdown{
+
 margin-top:25px;
 font-size:18px;
-opacity:0.8;
+opacity:0.85;
+
 }
 
-/* visualizer */
+/* VISUALIZER */
 
 .visualizer{
-margin-top:40px;
+
+margin-top:35px;
 display:flex;
 justify-content:center;
 align-items:flex-end;
 gap:5px;
-height:120px;
+height:100px;
+
 }
 
 .bar{
+
 width:6px;
-background:#00f0ff;
-border-radius:3px;
+background:#8c00ff;
 animation:beat infinite ease-in-out;
+border-radius:3px;
+
 }
 
 @keyframes beat{
 
-0%{height:10px}
-50%{height:100px}
-100%{height:10px}
+0%{height:15px}
+50%{height:90px}
+100%{height:15px}
 
 }
 
@@ -100,18 +148,20 @@ animation:beat infinite ease-in-out;
 
 <body>
 
-<div class="container">
+<div class="bg"></div>
 
-<h1>18.EXE</h1>
+<div class="hero">
 
-<div class="subtitle">
-system upgrade: adult mode unlocked
+<h1>18 anni</h1>
+<p>23 APR 2026</p>
+
 </div>
 
+<div class="section">
+
 <div class="info">
-📅 23 Aprile<br>
-⏰ 20:00<br>
-📍 scrivimi per la location
+⏰ 23 Aprile<br>
+📍 scrivimi per la location e orario
 </div>
 
 <a class="button" href="https://forms.gle/AireqN8G1FPncScP6" target="_blank">
@@ -140,23 +190,20 @@ var ore = Math.floor((distanza%(1000*60*60*24))/(1000*60*60));
 var minuti = Math.floor((distanza%(1000*60*60))/(1000*60));
 
 document.getElementById("countdown").innerHTML =
-"⏳ " + giorni + "g " + ore + "h " + minuti + "m";
+giorni+"g "+ore+"h "+minuti+"m";
 
 },1000);
 
+/* visualizer */
 
-/* music visualizer */
-
-const visualizer = document.getElementById("visualizer");
+const visualizer=document.getElementById("visualizer");
 
 for(let i=0;i<30;i++){
 
 let bar=document.createElement("div");
 bar.classList.add("bar");
 
-let random=(Math.random()*1.2)+0.5;
-
-bar.style.animationDuration=random+"s";
+bar.style.animationDuration=(Math.random()*1+0.5)+"s";
 
 visualizer.appendChild(bar);
 
